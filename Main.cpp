@@ -1,17 +1,14 @@
-#include "Window.h"
+#include "Game.h"
 
 int main()
 {
-    Window window;
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    Game game;
 
-    while (!window.IsDone())
+    while (!game.GetWindow()->IsDone())
     {
-        window.Update();
-        window.BeginDraw();
-        window.Draw(shape);
-        window.EndDraw();
+        game.HandleInput();
+        game.Update();
+        game.Render();
     }
 
     return 0;
